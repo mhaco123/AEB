@@ -1,0 +1,86 @@
+[System]
+Name='new3'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=2
+NumRules=29
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='sum'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='TTC'
+Range=[0 3]
+NumMFs=3
+MF1='VS(TTC)':'trapmf',[-1.35 -0.15 0.15 1.35]
+MF2='S(TTC)':'trapmf',[0.15 1.35 1.65 2.85]
+MF3='OK(TTC)':'trapmf',[1.65 2.85 3.15 4.35]
+
+[Input2]
+Name='a_f'
+Range=[-5 0]
+NumMFs=2
+MF1='Critical(a_f)':'trapmf',[-9.5 -5.5 -2.98280423280423 -0.5]
+MF2='OK(a_f)':'trapmf',[-4.8968253968254 -0.896825396825396 0.103174603174604 4.1031746031746]
+
+[Input3]
+Name='Risk'
+Range=[0 1]
+NumMFs=6
+MF1='1':'trimf',[-0.2 3.469e-18 0.2]
+MF2='2':'trimf',[0 0.2 0.4]
+MF3='3':'trimf',[0.2 0.4 0.6]
+MF4='4':'trimf',[0.4 0.6 0.8]
+MF5='5':'trimf',[0.6 0.8 1]
+MF6='6':'trimf',[0.8 1 1.2]
+
+[Output1]
+Name='Deceleration'
+Range=[0 14]
+NumMFs=4
+MF1='Small':'trimf',[-4.668 0 4.668]
+MF2='Medium':'trimf',[0 4.668 9.332]
+MF3='Large':'trimf',[4.668 9.332 14]
+MF4='Max':'trimf',[9.332 14 18.66]
+
+[Output2]
+Name='FCW'
+Range=[0 1]
+NumMFs=3
+MF1='Visual':'trimf',[-0.5 9.253e-18 0.5]
+MF2='Acoustic':'trimf',[0 0.5 1]
+MF3='AcousticAndVisual':'trimf',[0.5 1 1.5]
+
+[Rules]
+1 1 6, 4 1 (1) : 1
+1 1 5, 4 1 (1) : 1
+1 1 4, 4 1 (1) : 1
+1 1 3, 3 1 (1) : 1
+1 1 2, 3 1 (1) : 1
+1 1 1, 3 1 (1) : 1
+2 1 6, 3 1 (1) : 1
+2 1 5, 3 1 (1) : 1
+2 1 4, 3 1 (1) : 1
+2 1 3, 2 3 (1) : 1
+2 1 2, 2 3 (1) : 1
+2 1 1, 2 3 (1) : 1
+3 1 6, 2 3 (1) : 1
+3 1 5, 2 3 (1) : 1
+3 1 4, 2 3 (1) : 1
+3 1 3, 1 3 (1) : 1
+3 1 2, 1 3 (1) : 1
+3 1 1, 1 3 (1) : 1
+3 2 6, 0 3 (1) : 1
+3 2 5, 0 3 (1) : 1
+3 2 4, 0 3 (1) : 1
+3 2 0, 1 3 (1) : 1
+2 2 0, 1 3 (1) : 1
+1 2 6, 3 1 (1) : 1
+1 2 5, 3 1 (1) : 1
+1 2 4, 2 1 (1) : 1
+1 2 3, 2 1 (1) : 1
+1 2 2, 1 1 (1) : 1
+1 2 1, 1 1 (1) : 1

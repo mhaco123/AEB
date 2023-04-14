@@ -1,0 +1,63 @@
+[System]
+Name='dist2'
+Type='mamdani'
+Version=2.0
+NumInputs=4
+NumOutputs=1
+NumRules=0
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='D(a_rel)'
+Range=[-5 1]
+NumMFs=6
+MF1='XXL_a':'trimf',[-6.2 -5 -3.8]
+MF2='XL_a':'trimf',[-5 -3.8 -2.6]
+MF3='L_a':'trimf',[-3.8 -2.6 -1.4]
+MF4='M_a':'trimf',[-2.6 -1.4 -0.2]
+MF5='Zero_a':'trimf',[-1.4 -0.2 1]
+MF6='P_a':'trimf',[-0.2 1 2.2]
+
+[Input2]
+Name='f(a_rel)'
+Range=[0.1 1]
+NumMFs=6
+MF1='XLL_f':'trimf',[-0.08 0.1 0.28]
+MF2='XL_f':'trimf',[0.1 0.28 0.46]
+MF3='L_f':'trimf',[0.28 0.46 0.64]
+MF4='M_f':'trimf',[0.46 0.64 0.82]
+MF5='S_f':'trimf',[0.6419955654102 0.821995565410199 1.0019955654102]
+MF6='XS_f':'trimf',[0.8219955654102 1.0019955654102 1.1819955654102]
+
+[Input3]
+Name='TTC'
+Range=[0 3]
+NumMFs=6
+MF1='XXS(TTC)':'trimf',[-0.6 2.082e-17 0.6]
+MF2='XS(TTC)':'trimf',[0 0.6 1.2]
+MF3='S(TTC)':'trimf',[0.6 1.2 1.8]
+MF4='M(TTC)':'trimf',[1.2 1.8 2.4]
+MF5='L(TTC)':'trimf',[1.8 2.4 3]
+MF6='XL(TTC)':'trimf',[2.4 3 3.6]
+
+[Input4]
+Name='THW'
+Range=[0 2]
+NumMFs=6
+MF1='XXS(THW)':'trimf',[-0.395565410199557 0.00443458980044343 0.404434589800443]
+MF2='XS(THW)':'trimf',[0 0.4 0.8]
+MF3='S(THW)':'trimf',[0.4 0.8 1.2]
+MF4='M(THW)':'trimf',[0.8 1.2 1.6]
+MF5='L(THW)':'trimf',[1.2 1.6 2]
+MF6='XL(THW)':'trimf',[1.6 2 2.4]
+
+[Output1]
+Name='output1'
+Range=[2 8]
+NumMFs=0
+
+[Rules]

@@ -1,0 +1,69 @@
+[System]
+Name='TH_TTC_AEB2'
+Type='mamdani'
+Version=2.0
+NumInputs=2
+NumOutputs=2
+NumRules=16
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='THW'
+Range=[0 2]
+NumMFs=4
+MF1='VSTH':'trimf',[-0.6667 0 0.6667]
+MF2='STH':'trimf',[0 0.6667 1.333]
+MF3='MTH':'trimf',[0.6667 1.333 2]
+MF4='LTH':'trimf',[1.333 2 2.667]
+
+[Input2]
+Name='TTC'
+Range=[0 3]
+NumMFs=4
+MF1='VSTTC':'trimf',[-1 0 1]
+MF2='STTC':'trimf',[0 1 1.999]
+MF3='MTTC':'trimf',[1 1.999 3]
+MF4='LTTC':'trimf',[1.999 3 4]
+
+[Output1]
+Name='BrakeFactor'
+Range=[0 1]
+NumMFs=8
+MF1='mf1':'gauss2mf',[0.04853 -0.01429 0.04853 0.01429]
+MF2='mf2':'gauss2mf',[0.04853 0.1286 0.04853 0.1571]
+MF3='mf3':'gauss2mf',[0.04853 0.2714 0.04853 0.3]
+MF4='mf4':'gauss2mf',[0.04853 0.4143 0.04853 0.4429]
+MF5='mf5':'gauss2mf',[0.04853 0.5571 0.04853 0.5857]
+MF6='mf6':'gauss2mf',[0.04853 0.7 0.04853 0.7286]
+MF7='mf7':'gauss2mf',[0.04853 0.8429 0.04853 0.8714]
+MF8='mf8':'gauss2mf',[0.04853 0.9857 0.04853 1.014]
+
+[Output2]
+Name='FCW'
+Range=[0 1]
+NumMFs=3
+MF1='Acoustic':'trimf',[-0.4 0 0.4]
+MF2='Visual':'trimf',[0.1 0.5 0.9]
+MF3='all':'trimf',[0.6 1 1.4]
+
+[Rules]
+1 1, 8 3 (1) : 1
+1 2, 7 3 (1) : 1
+2 2, 6 3 (1) : 1
+2 1, 1 2 (1) : 1
+3 1, 1 2 (1) : 1
+4 1, 1 1 (1) : 1
+4 2, 1 1 (1) : 1
+4 3, 1 1 (1) : 1
+4 4, 1 1 (1) : 1
+3 3, 1 1 (1) : 1
+3 4, 1 1 (1) : 1
+2 4, 1 1 (1) : 1
+1 4, 1 1 (1) : 1
+1 3, 1 2 (1) : 1
+2 3, 1 2 (1) : 1
+3 2, 1 2 (1) : 1

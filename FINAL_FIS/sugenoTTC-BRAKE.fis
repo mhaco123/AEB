@@ -1,0 +1,33 @@
+[System]
+Name='sugenoTTC-BRAKE'
+Type='sugeno'
+Version=2.0
+NumInputs=1
+NumOutputs=1
+NumRules=3
+AndMethod='prod'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='TTC'
+Range=[0 3]
+NumMFs=3
+MF1='verySmallTTC':'trimf',[-1.2 0 1.2]
+MF2='SmallTTC':'trimf',[0.3 1.5 2.7]
+MF3='MTTC':'trimf',[1.8 3 4.2]
+
+[Output1]
+Name='BrakeAccelaration'
+Range=[0 1]
+NumMFs=3
+MF1='SmallBrake':'constant',[1]
+MF2='MediumBrake':'constant',[3]
+MF3='LargeBrake':'constant',[5]
+
+[Rules]
+1, 3 (1) : 1
+2, 2 (1) : 1
+3, 1 (1) : 1
